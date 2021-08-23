@@ -1,0 +1,20 @@
+galaxy_info:
+  role_name: ddclient
+  author: makubo
+  min_ansible_version: 2.7
+  license: MIT
+  platforms:
+  - name: Debian
+    versions:
+    - all
+  - name: Ubuntu
+    versions:
+    - all
+  description: >
+    Install and configure ddclient.
+  galaxy_tags:
+  - ddclient
+  - ddns
+  - dns
+  - dyndns
+  - networking

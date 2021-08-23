@@ -1,0 +1,19 @@
+---
+
+- name: load the OS specific varibles
+  include_vars: "{{ ansible_os_family | lower }}.yml"
+
+- include_tasks: "{{ ansible_os_family | lower }}_install.yml"
+
+- name: create ddclient configuration
+  template:
+    src: etc/ddclient.conf.j2
+    dest: "{{ ddclient_config_path }}"
+    owner: root
+    group: root
+    mode: 0600
+    backup: "{{ ddclient_backup_config }}"
+  notify:
+  - "stop ddclient service"
+  - "remove ddclient's cache"
+  - "start ddclient service"

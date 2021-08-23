@@ -1,0 +1,17 @@
+ddclient_syslog: yes
+ddclient_ssl: yes
+
+ddclient_protocol:
+  protocol: dyndns2
+  server: "members.dyndns.org"
+  login: ""
+  password: "''"
+  domains: []
+
+ddclient_router:
+  type: web
+  options:
+    web: "checkip.dyndns.com"
+    web-skip: "'IP Address'"
+
+ddclient_backup_config: no

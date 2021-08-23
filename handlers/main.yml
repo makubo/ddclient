@@ -1,0 +1,17 @@
+---
+
+- name: stop ddclient service
+  service:
+    name: "{{ ddclient_service_name }}"
+    state: stopped
+
+- name: remove ddclient's cache
+  file:
+    state: absent
+    path: "{{ ddclient_cache_path }}"
+
+- name: start ddclient service
+  service:
+    name: "{{ ddclient_service_name }}"
+    state: started
+    enabled: yes

@@ -1,0 +1,4 @@
+ddclient_package: ddclient
+ddclient_config_path: /etc/ddclient.conf
+ddclient_cache_path: /var/cache/ddclient/ddclient.cache
+ddclient_service_name: ddclient.service

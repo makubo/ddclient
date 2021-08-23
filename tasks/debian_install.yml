@@ -1,0 +1,6 @@
+---
+
+- name: install the ddclient packages 
+  apt:
+    name: "{{ ddclient_package }}"
+    state: present

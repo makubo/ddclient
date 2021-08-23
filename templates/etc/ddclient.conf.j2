@@ -1,0 +1,21 @@
+# {{ ansible_managed }}
+# Configuration file for ddclient
+#
+# /etc/ddclient.conf
+
+use={{ ddclient_router.type }}{% for key,value in ddclient_router.options.items() %}, {{key}}={{value}}
+{% endfor %}
+
+{% for protocol in ddclient_protocol %}
+{% for key,value in protocol.items() %}
+{% if key == "domains" %}
+{% for domain in value %}
+{{ domain }}{% if not loop.last -%}, {% endif %}
+{% endfor %}
+{% else %}
+{{ key }}={{ value }}
+{% endif %}
+{% endfor %}
+
+
+{% endfor %}
