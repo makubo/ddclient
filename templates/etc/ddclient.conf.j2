@@ -1,9 +1,13 @@
 # {{ ansible_managed }}
 # Configuration file for ddclient
 #
-# /etc/ddclient.conf
+# {{ ddclient_config_path }}
 
-use={{ ddclient_router.type }}{% for key,value in ddclient_router.options.items() %}, {{key}}={{value}}
+daemon={{ ddclient_interval }}
+syslog={{ 'yes' if ddclient_syslog else 'no' }}
+ssl={{ 'yes' if ddclient_ssl else 'no'}}
+
+use={{ ddclient_router.type }}{% for key,value in ddclient_router.options.items() %}, {{ key }}={{ value }}
 {% endfor %}
 
 {% for protocol in ddclient_protocol %}

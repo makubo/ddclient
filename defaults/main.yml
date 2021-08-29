@@ -1,5 +1,7 @@
+ddclient_interval: 300
 ddclient_syslog: yes
 ddclient_ssl: yes
+
 
 ddclient_protocol:
   protocol: dyndns2
